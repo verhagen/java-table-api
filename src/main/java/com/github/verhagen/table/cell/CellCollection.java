@@ -24,13 +24,13 @@ public class CellCollection {
 		public Builder(final CellDefinition cellDef) {
 			this.cellDef = cellDef;
 		}
+		
+		public CellCollection create() {
+			return new CellCollection(this);
+		}
 
 		public List<Cell<?>> getCells() {
 			return Collections.unmodifiableList(cells);
-		}
-
-		public CellCollection create() {
-			return new CellCollection(this);
 		}
 
 		public Builder<T> add(T value) {
