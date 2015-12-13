@@ -18,7 +18,7 @@ public class ColumnTest {
 				.create();
 
 		assertNotNull(column);
-		List<TableCell<?>> cells = column.get();
+		List<DataCell<?>> cells = column.get();
 		assertEquals(cells.size(), 3);
 		assertEquals(cells.get(0).getValue(), "sample-22");
 		assertEquals(cells.get(1).getValue(), "sample-33");

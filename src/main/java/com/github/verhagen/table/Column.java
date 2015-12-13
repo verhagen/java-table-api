@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Column {
-	private final List<TableCell<?>> cells;
+	private final List<DataCell<?>> cells;
 
 
 	public Column(final Builder<?> bldr) {
@@ -13,7 +13,7 @@ public class Column {
 	}
 
 
-	public List<TableCell<?>> get() {
+	public List<DataCell<?>> get() {
 		return Collections.unmodifiableList(cells);
 	}
 
@@ -22,7 +22,7 @@ public class Column {
 
 	public static class Builder<T> {
 		private Header header;
-		private List<TableCell<T>> cells = new LinkedList<>();
+		private List<DataCell<T>> cells = new LinkedList<>();
 
 		public Builder(final Header header) {
 			this.header = header;
@@ -32,12 +32,12 @@ public class Column {
 			return new Column(this);
 		}
 
-		public List<TableCell<?>> getCells() {
+		public List<DataCell<?>> getCells() {
 			return Collections.unmodifiableList(cells);
 		}
 
-		public Builder<T> add(T value) {
-			cells.add(TableCell.create(header, value));
+		public Builder<T> add(final T value) {
+			cells.add(DataCell.create(header, value));
 			return this;
 		}
 

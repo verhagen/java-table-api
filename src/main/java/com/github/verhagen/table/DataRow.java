@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class DataRow {
 	private HeaderRow headerRow;
-	private Map<String, TableCell<?>> cells;
+	private Map<String, DataCell<?>> cells;
 
 
 	public DataRow(final Builder bldr) {
@@ -13,7 +13,7 @@ public class DataRow {
 		this.cells = bldr.getCells();
 	}
 
-	public TableCell<?> get(final String name) {
+	public DataCell<?> get(final String name) {
 		return cells.get(name);
 	}
 
@@ -26,7 +26,7 @@ public class DataRow {
 
 	public static class Builder {
 		private HeaderRow headers;
-		private Map<String, TableCell<?>> tableCells = new HashMap<>();
+		private Map<String, DataCell<?>> tableCells = new HashMap<>();
 
 		public Builder(final HeaderRow headers) {
 			this.headers = headers;
@@ -40,13 +40,13 @@ public class DataRow {
 			return headers;
 		}
 
-		public Map<String, TableCell<?>> getCells() {
+		public Map<String, DataCell<?>> getCells() {
 			return tableCells;
 		}
 
 		public <T> Builder add(final String name, final T value) {
 			Header header = headers.get(name);
-			tableCells.put(name, TableCell.create(header, value));
+			tableCells.put(name, DataCell.create(header, value));
 			return this;
 		}
 

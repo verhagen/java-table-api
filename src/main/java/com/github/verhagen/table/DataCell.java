@@ -1,16 +1,16 @@
 package com.github.verhagen.table;
 
-public class TableCell <T> {
+public class DataCell <T> {
 	final Header header;
 	final T value;
 
-	public TableCell(final Header header, final T value) {
+	public DataCell(final Header header, final T value) {
 		this.header = header;
 		this.value = value;
 	}
 
-	public static <T> TableCell<T> create(Header header, T value) {
-		return new TableCell<T>(header, value);
+	public static <T> DataCell<T> create(final Header header, final T value) {
+		return new DataCell<T>(header, value);
 	}
 
 	public T getValue() {
